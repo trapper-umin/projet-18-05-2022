@@ -6,22 +6,29 @@ public class Check{
     private String name, dataName;
     private String password, dataPassword;
 
-    public void accessVerification() throws FileNotFoundException{
-        Scanner file=new Scanner(new File("Out data for computer.txt"));
+    public void accessVerification(){
+        Scanner file=null;
+        try {
+            file=new Scanner(new File("Out data for computer.txt"));
+        }catch (FileNotFoundException exception){
+            System.out.println("FILE NOT FOUND");
+        }
+
         int flagName=0,flagPassword=0;
         while(file.hasNext()){
             dataName=file.next();
-            if (checkName()==true){
+            if (checkName()){
                 flagName=1;
             }
             dataPassword=file.next();
-            if(checkPassword()==true){
+            if(checkPassword()){
                 flagPassword=1;
             }
         }
         if (flagName==1 && flagPassword==1){
             System.out.println("Access is allowed!");
         }
+        else System.out.println("Access denied!");
     }
 
     private boolean checkName(){

@@ -9,7 +9,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class main {
-    public static void main(String args[]) throws FileNotFoundException{
+    public static void main(String args[]){
         Scanner keyboard=new Scanner(System.in);
         PrintStream outAdmin=null,outComputer=null;
         try {
@@ -34,7 +34,7 @@ public class main {
         Check check=new Check();
         System.out.printf("#To access the system, enter your username and password#\nEnter username: ");
         check.setName(keyboard.next());
-        System.out.printf("\nEnter password: ");
+        System.out.printf("Enter password: ");
         check.setPassword(keyboard.next());
         System.out.println();
         check.accessVerification();
