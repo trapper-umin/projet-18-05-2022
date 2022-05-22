@@ -9,12 +9,12 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class main {
-    public static void main(String args[]){
+    public static void main(String args[]) throws FileNotFoundException{
         Scanner keyboard=new Scanner(System.in);
         PrintStream outAdmin=null,outComputer=null;
         try {
             outAdmin = new PrintStream("Out data for admin.txt");
-            outComputer = new PrintStream("Out data for compute.txt");
+            outComputer = new PrintStream("Out data for computer.txt");
             Scanner scan = new Scanner(new File("Out data for admin.txt"));
         }catch (FileNotFoundException exception){
             System.out.println("File not found");
@@ -30,6 +30,14 @@ public class main {
         enterUserData(arrayUsers,keyboard);
         createOutDataForAdmin(arrayUsers,outAdmin);
         createOutDataForComputer(arrayUsers,outComputer);
+
+        Check check=new Check();
+        System.out.printf("#To access the system, enter your username and password#\nEnter username: ");
+        check.setName(keyboard.next());
+        System.out.printf("\nEnter password: ");
+        check.setPassword(keyboard.next());
+        System.out.println();
+        check.accessVerification();
 
     }
     public static void enterUserData(User arrayUsers[], Scanner keyboard){
