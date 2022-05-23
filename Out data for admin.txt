@@ -1,4 +1,8 @@
 USER #1
-NICKNAME: q
-PASSWORD: q
+NICKNAME: sad
+PASSWORD: asd
+
+USER #2
+NICKNAME: sad
+PASSWORD: asd
 
